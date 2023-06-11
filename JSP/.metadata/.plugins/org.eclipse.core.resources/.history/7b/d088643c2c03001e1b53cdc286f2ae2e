@@ -1,0 +1,88 @@
+package Modelo.Instituto;
+
+import java.util.Date;
+
+public class ClassEstudiante {
+	
+	private int idestudiante;
+	private String nomEstudiante;
+	private String apeEstudiante;
+	private String dniEstudiante;
+	private String correo;
+	private String fono;
+	private String carrera;
+	private Date fechanac;
+	
+	
+	
+	// Métodos Getters y Setters
+	public int getIdestudiante() {
+		return idestudiante;
+	}
+	public void setIdestudiante(int idestudiante) {
+		this.idestudiante = idestudiante;
+	}
+	public String getNomEstudiante() {
+		return nomEstudiante;
+	}
+	public void setNomEstudiante(String nomEstudiante) {
+		this.nomEstudiante = nomEstudiante;
+	}
+	public String getApeEstudiante() {
+		return apeEstudiante;
+	}
+	public void setApeEstudiante(String apeEstudiante) {
+		this.apeEstudiante = apeEstudiante;
+	}
+	public String getDniEstudiante() {
+		return dniEstudiante;
+	}
+	public void setDniEstudiante(String dniEstudiante) {
+		this.dniEstudiante = dniEstudiante;
+	}
+	public String getCorreo() {
+		return correo;
+	}
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+	public String getFono() {
+		return fono;
+	}
+	public void setFono(String fono) {
+		this.fono = fono;
+	}
+	public String getCarrera() {
+		return carrera;
+	}
+	public void setCarrera(String carrera) {
+		this.carrera = carrera;
+	}
+	public Date getFechanac() {
+		return fechanac;
+	}
+	public void setFechanac(Date fechanac) {
+		this.fechanac = fechanac;
+	}
+	
+	// Constructores
+	public ClassEstudiante(int idestudiante, String nomEstudiante, String apeEstudiante, String dniEstudiante,
+			String correo, String fono, String carrera, Date fechanac) {
+		//super();
+		this.idestudiante = idestudiante;
+		this.nomEstudiante = nomEstudiante;
+		this.apeEstudiante = apeEstudiante;
+		this.dniEstudiante = dniEstudiante;
+		this.correo = correo;
+		this.fono = fono;
+		this.carrera = carrera;
+		this.fechanac = fechanac;
+	}
+	public ClassEstudiante(){
+		
+	}
+	
+	
+	
+
+}// fin de la clase

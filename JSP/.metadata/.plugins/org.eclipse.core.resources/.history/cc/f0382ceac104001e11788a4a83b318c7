@@ -1,0 +1,94 @@
+package Controlador.Instituto;
+
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import Dao.Instituto.ClassAlumnoImp;
+import Modelo.Instituto.ClassAlumno;
+
+/**
+ * Servlet implementation class ControladorAlumno
+ */
+@WebServlet("/ControladorAlumno")
+public class ControladorAlumno extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ControladorAlumno() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//Recuperamos los Datos del Formulario			int id= Integer.parseInt(request.getParameter("cantidad"));
+			String id=request.getParameter("id");
+			String pass=request.getParameter("password");
+			String nom=request.getParameter("nombre");
+			String ape=request.getParameter("apellido");
+			String dni=request.getParameter("dni");
+			String corr=request.getParameter("correo");
+			String fon=request.getParameter("fono");
+			String carrera=request.getParameter("carrera");
+			String fecha=request.getParameter("fechanac");
+			
+			
+		//Instanciamos las Clases
+			ClassAlumno clal = new ClassAlumno();
+			ClassAlumnoImp crudclal= new ClassAlumnoImp();
+			
+		//Asignamos Valores del Formulario
+			clal.setIdAlumno(id);
+			clal.setPassAlumno(pass);
+			clal.setNomAlumno(nom);
+			clal.setDniAlumno(dni);
+			clal.setCorreoAlumno(corr);
+			clal.setFonoAlumno(fon);
+			clal.setCarreraAlumno(carrera);		
+			
+		//Aplicamos la clase simpledateformat
+			SimpleDateFormat sdf= new SimpleDateFormat("dd/mm/yyyy");
+			
+			Date fecha;
+			
+			try{
+				fecha= sdf.parse(fecha);
+				Date fechasql= new Date(fecha.getTime());
+				
+				clal.setFechanac(fechasql);
+	
+			}
+			
+			catch(Exception e){
+				e.printStackTrace();
+			}
+			
+			//Invocamos el método RegistraProducto
+				crudpro.RegistrarProducto(clprod);
+				
+			//Redireccionamos a la Vista
+				request.getRequestDispatcher("/ListarProductoStock.jsp").forward(request, response);
+			
+			doGet(request, response);
+		}
+
+}

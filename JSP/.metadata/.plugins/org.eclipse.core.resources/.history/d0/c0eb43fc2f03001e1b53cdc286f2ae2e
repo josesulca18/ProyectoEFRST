@@ -1,0 +1,18 @@
+package Dao.Instituto;
+
+import Modelo.Instituto.ClassEstudiante;
+
+public class TestEstudiante {
+
+	public static void main(String[] args) {
+		//
+		ClassEstudiante clestu=new ClassEstudiante();
+		ClassEstudianteImp clcrud=new ClassEstudianteImp();
+		
+		
+		
+		
+		
+	}// fin del método principal
+
+}// fin de la clase test Estudiante

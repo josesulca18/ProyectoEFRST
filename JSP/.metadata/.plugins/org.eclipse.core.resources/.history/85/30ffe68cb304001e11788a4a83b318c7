@@ -1,0 +1,37 @@
+package Modelo.Instituto;
+
+public class ClassUsuario {
+	
+	private String idusuario;
+	private String password;
+	
+	
+	public String getIdusuario() {
+		return idusuario;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setIdusuario(String idusuario) {
+		this.idusuario = idusuario;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public ClassUsuario(String idusuario, String password) {
+		this.idusuario = idusuario;
+		this.password = password;
+	}
+	
+	public ClassUsuario(){
+		
+	}
+	
+	
+	
+	
+}// fin de la clase usuario..

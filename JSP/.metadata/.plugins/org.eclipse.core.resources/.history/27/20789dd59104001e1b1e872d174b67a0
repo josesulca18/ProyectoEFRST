@@ -1,0 +1,21 @@
+package Modelo.Instituto;
+
+public class ClassUsuario {
+	
+	private String idusuario;
+	private String password;
+	
+	
+	public ClassUsuario(String idusuario, String password) {
+		this.idusuario = idusuario;
+		this.password = password;
+	}
+	
+	public ClassUsuario(){
+		
+	}
+	
+	
+	
+	
+}// fin de la clase usuario..

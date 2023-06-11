@@ -1,0 +1,10 @@
+package Dao.Instituto;
+
+public class TestEstudiante {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}// fin del método principal
+
+}// fin de la clase test Estudiante

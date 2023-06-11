@@ -1,0 +1,88 @@
+package Dao.Instituto;
+
+import java.util.Date;
+
+
+import java.util.List;
+
+import Modelo.Instituto.ClassAlumno;
+
+
+public class TestClassAlumnoImp {
+
+	public static void main(String[] args) {
+		//
+		
+		ClassAlumno clestu=new ClassAlumno();
+		ClassAlumnoImp clcrud=new ClassAlumnoImp();
+		/*
+		clestu.setIdAlumno("bcs");
+		clestu.setPassAlumno("abc");
+		clestu.setNomAlumno("Lucas");
+		clestu.setApeAlumno("Florez Campos");
+		clestu.setDniAlumno("78541236");
+		clestu.setCorreoAlumno("lucasflorez@gmail.com");
+		clestu.setFonoAlumno("985632147");
+		clestu.setCarreraAlumno("Diseño Grafico");
+		Date fechaact=new Date();
+		Date fechasql=new Date(fechaact.getTime());
+		clestu.setFechanac(fechasql);
+		
+		
+		clcrud.RegistrarAlumno(clestu);
+		
+		*/
+		/*================ Testeo de Método Actualizar ===================*/
+		/*
+		clestu.setPassAlumno("abcd");
+		clestu.setNomAlumno("Felipe");
+		clestu.setApeAlumno("Gonzales Herrera");
+		clestu.setDniAlumno("78541322");
+		clestu.setCorreoAlumno("felipegonzales@gmail.com");
+		clestu.setFonoAlumno("985471236");
+		clestu.setCarreraAlumno("Contabilidad");
+		Date fecha=new Date();
+		Date fechasql=new Date(fecha.getTime());
+		clestu.setFechanac(fechasql);
+		
+		clestu.setIdAlumno("1");
+		
+		clcrud.ActualizarAlumno(clestu);
+		
+		*/
+		/*================ Testeo de Método Eliminar ===================*/
+		/*
+		clestu.setIdAlumno("I202324770");
+		
+		clcrud.ElimnarAlumno(clestu);
+		
+	*/
+		/*================ Testeo de Método Listar ===================*/
+		
+		
+		List<ClassAlumno>listado=clcrud.ListarAlumno();
+		
+		for(ClassAlumno list:listado){
+			
+			System.out.println("Codigo 	: "+list.getIdAlumno()+"\n" +"Contraseña : "+list.getPassAlumno() +"\n" +  "Nombre 	: "+list.getNomAlumno()+"\n" +
+					"Apellidos 	: "+list.getApeAlumno()+ "\n"  +"Dni 		: "+list.getDniAlumno()+ "\n"  +"Correo 	: "+list.getCorreoAlumno()+ "\n"  +
+					"Telefono 		: "+list.getFonoAlumno()+ "\n" + "Carrera 		: "+list.getCarreraAlumno()+ "\n" +"Fecha de Nacimiento 	: "+list.getFechanac()+"\n");
+			
+			
+		}// fin del for
+		
+		/*================ Testeo de Método Buscar ===================*/
+		
+		/*
+		clestu.setIdAlumno("1");
+		ClassAlumno estu=clcrud.BuscarAlumno(clestu);
+		
+		System.out.println("Codigo : "+estu.getIdAlumno()+" Nombre : "+estu.getNomAlumno()+
+				" Apellido : "+estu.getApeAlumno()+" Dni : "+estu.getDniAlumno()+" Correo : "+estu.getCarreraAlumno()+
+				" Telefono : "+estu.getFonoAlumno()+" Carrea : "+estu.getCarreraAlumno()+" Fecha de Nacimiento : "+estu.getFechanac());
+		*/
+		
+
+	}// fin del método principal
+
+}// fin de la clase test Alumno

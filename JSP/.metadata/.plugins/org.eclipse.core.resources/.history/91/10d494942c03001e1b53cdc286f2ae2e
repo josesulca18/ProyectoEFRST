@@ -1,0 +1,11 @@
+package Interfaces.Instituto;
+
+import Modelo.Instituto.ClassEstudiante;
+
+public interface IntEstudiantable {
+	
+	void RegistrarEstudiante(ClassEstudiante cestu);
+	void ActualizarEstudiante(ClassEstudiante cestu);
+	void ElimnarEstudiante(ClassEstudiante cest);
+
+}

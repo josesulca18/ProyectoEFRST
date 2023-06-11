@@ -1,0 +1,37 @@
+package Dao.Instituto;
+
+import Modelo.Instituto.ClassUsuario;
+
+public class TestClassUsuarioImp {
+
+	public static void main(String[] args) {
+		// instanciamos las respectivas clases
+		
+		ClassUsuario clusu=new ClassUsuario();
+		
+		ClassUsuarioImp climp=new ClassUsuarioImp();
+		
+		// asignamos valores a los metodos setter
+		
+		clusu.setIdusuario("johan");
+		clusu.setPassword("123456");
+		
+		// recuperamons valores de la base de datos
+		
+		ClassUsuario valusu=climp.ValidarUsuario(clusu);
+		
+		// aplicamos una condicion
+		
+		if(valusu.getUsuario()!=null && valusu.getPassword()!=null){
+			
+			// emitimos un mensaje por consola 
+			
+			System.out.println("Credenciales Correctas");
+		}else {
+			System.out.println("Credenciales Incorrectas");
+			
+		}// FIN DE LA CONDICION
+
+	}// fin del metodo principal
+
+} // fin de la clase

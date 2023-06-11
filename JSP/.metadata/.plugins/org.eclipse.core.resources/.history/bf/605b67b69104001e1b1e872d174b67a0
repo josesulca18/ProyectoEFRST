@@ -1,0 +1,49 @@
+package Modelo.Instituto;
+
+public class ClassUsuario {
+	
+	private int idusuario;
+	private String password;
+	
+	
+	
+	
+	// Declaramos susu metodos getter y setter
+
+	public int getIdusuario() {
+		return idusuario;
+	}
+	public void setIdusuario(int idusuario) {
+		this.idusuario = idusuario;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	// Constructores
+	
+	
+	
+	public ClassUsuario( String password) {
+		//super();
+		this.password = password;
+	}// fin del constructor con 2 parametros
+	
+	
+	public ClassUsuario(int idusuario, String usuario, String password) {
+		//super();
+		this.idusuario = idusuario;
+		this.password = password;
+	}// fin del constructor con 3parametros 
+	
+	
+	public ClassUsuario(){
+		
+	}// fin del constructor vacio
+	
+	
+}// fin de la clase usuario..

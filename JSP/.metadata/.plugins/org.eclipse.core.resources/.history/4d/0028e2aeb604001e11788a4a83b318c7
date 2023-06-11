@@ -1,0 +1,18 @@
+package Interfaces.Instituto;
+
+import java.util.List;
+
+import Modelo.Instituto.ClassProfesor;
+
+public interface IntProfesoreable {
+	
+	// declaramos los metodos
+	
+	void RegistrarUsuario(ClassProfesor clusu);
+	void ActualizarUsuario(ClassProfesor clusu);
+	void EliminarUsuario(ClassProfesor clusu);
+	List<ClassProfesor>ListarUsuario();
+	ClassProfesor BuscarUsuario(ClassProfesor clusu);
+	ClassProfesor ValidarUsuario(ClassProfesor clusu);
+
+}// fin de la interface

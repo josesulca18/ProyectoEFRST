@@ -1,0 +1,95 @@
+package Dao.Instituto;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import ConectarBD.ConectarMYSQL;
+import Interfaces.Instituto.IntProfesoreable;
+import Modelo.Instituto.ClassProfesor;
+
+public class ClassProfesorImp implements IntProfesoreable {
+
+	@Override
+	public void RegistrarUsuario(ClassProfesor clusu) {
+		// TODO Auto-generated method stub
+		
+	}// fin del metodo registrarUsuario
+
+	@Override
+	public void ActualizarUsuario(ClassProfesor clusu) {
+		// TODO Auto-generated method stub
+		
+	}// fin del metodo ActualizarUsuario
+
+	@Override
+	public void EliminarUsuario(ClassProfesor clusu) {
+		// TODO Auto-generated method stub
+		
+	}// fin del metodo EliminarUsuario
+
+	@Override
+	public List<ClassProfesor> ListarUsuario() {
+		// TODO Auto-generated method stub
+		return null;
+	} // fin del metodo ListarUsuario
+
+	@Override
+	public ClassProfesor BuscarUsuario(ClassProfesor clusu) {
+		// TODO Auto-generated method stub
+		return null;
+	}// fin del metodo BuscarUsuario 
+
+	@Override
+	public ClassProfesor ValidarUsuario(ClassProfesor clusu) {
+		// instanciamos la clase conectar
+		
+		ConectarMYSQL conex= new ConectarMYSQL();
+		
+		// creamos una cadena en mysql
+		
+		String sql="Select * from tbl_usuario where id_usuario=? and pass_usuario=?";
+		
+		// aplicamos la interfaces predeterminada para base de datos
+		
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		
+		// instanciamos la claseusuario
+		
+		ClassProfesor clalm= new ClassProfesor();
+		//asignamos la cadena y la conexion
+		try {
+			ps=conex.conexionbd().prepareStatement(sql);
+			
+			//asignamos los parametros
+			
+			ps.setString(1,clusu.getIdProfesor());
+			ps.setString(2,clusu.getPassProfesor());
+			
+			
+			//realizamos la ejecucion
+			rs=ps.executeQuery();
+			
+			// aplicamos una condicion
+			
+			if(rs.next()){
+				//almacenamos los valores recuperados de la BD
+				
+				clalm.setIdusuario(rs.getString(1));
+				clalm.setPassword(rs.getString(2));
+				
+			}// fin de la condicion
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+
+		return clalm;
+	} // fin del metodo ValidarUsuario
+	
+
+}// fin de la clase usuarioImp

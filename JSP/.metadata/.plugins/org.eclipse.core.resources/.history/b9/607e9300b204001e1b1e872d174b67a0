@@ -1,0 +1,14 @@
+package Interfaces.Instituto;
+
+import java.util.List;
+
+import Modelo.Instituto.ClassAlumno;
+
+public interface IntEstudiantable {
+	
+	void RegistrarEstudiante(ClassAlumno cestu);
+	void ActualizarEstudiante(ClassAlumno cestu);
+	void ElimnarEstudiante(ClassAlumno cestu);
+	List<ClassAlumno>ListarEstudiante();
+	ClassAlumno BuscarAlumno(ClassAlumno cestu);
+}

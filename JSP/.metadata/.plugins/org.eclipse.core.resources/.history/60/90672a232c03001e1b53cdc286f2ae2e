@@ -1,0 +1,14 @@
+package Modelo.Instituto;
+
+public class ClassEstudiante {
+	
+	private int idestudiante;
+	private String nomEstudiante;
+	private String apeEstudiante;
+	private String dniEstudiante;
+	private String correo;
+	private String fono;
+	private String carrera;
+	private Date fechanac;
+
+}// fin de la clase

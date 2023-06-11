@@ -1,0 +1,155 @@
+package Dao.Instituto;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+
+
+import ConectarBD.ConectarMYSQL;
+import Interfaces.Instituto.IntEstudiantable;
+import Modelo.Instituto.ClassEstudiante;
+
+public class ClassEstudianteImp  implements IntEstudiantable{
+
+	@Override
+	public void RegistrarEstudiante(ClassEstudiante cestu) {
+		//
+		ConectarMYSQL conex=new ConectarMYSQL();
+		
+		String sql="insert into tb_estudiante values(null,?,?,?,?,?,?,?)";
+		
+		PreparedStatement ps=null;
+		
+		try {
+			ps=conex.conexionbd().prepareStatement(sql);
+			
+			ps.setString(1,cestu.getNomEstudiante());
+			ps.setString(2,cestu.getApeEstudiante());
+			ps.setString(3,cestu.getDniEstudiante());
+			ps.setString(4,cestu.getCorreo());
+			ps.setString(5,cestu.getFono());
+			ps.setString(6,cestu.getCarrera());
+			ps.setDate(7,new java.sql.Date(cestu.getFechanac().getTime()));
+			
+			int x=ps.executeUpdate();
+			
+			if(x>0){
+				
+				System.out.println("Estudiante Registrado en la BD");
+				
+			}else {
+				
+				System.out.println("Estudiante No Registrado en la BD");
+				
+			}// fin del else
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}// fin del método RegistrarEstudiante
+
+	@Override
+	public void ActualizarEstudiante(ClassEstudiante cestu) {
+		//
+		ConectarMYSQL conex=new ConectarMYSQL();
+		
+		String sql="update tb_estudiante set nom_estudiante=?,ape_estudiante=?,"
+				+ "dni_estudiante=?,correo_estudiante=?,fono_estudiante=?,"
+				+ "carrera=?,fecha_nac=? where idestudiante=?";
+		
+		PreparedStatement ps=null;
+		
+		try {
+			
+			ps=conex.conexionbd().prepareStatement(sql);
+			
+			ps.setString(1,cestu.getNomEstudiante());
+			ps.setString(2,cestu.getApeEstudiante());
+			ps.setString(3,cestu.getDniEstudiante());
+			ps.setString(4,cestu.getCorreo());
+			ps.setString(5,cestu.getFono());
+			ps.setString(6,cestu.getCarrera());
+			ps.setDate(7,new java.sql.Date(cestu.getFechanac().getTime()));
+			ps.setInt(8,cestu.getIdestudiante());
+			
+			int z=ps.executeUpdate();
+			
+			if(z>0){
+				
+				System.out.println("Estudiante Actualizado Correctamente");
+				
+			}else {
+				System.out.println("Estudiante No Actualizado Correctamente");
+			}// fin del else
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}// fin del catch
+		
+	}// fin del método ActualizarEstudiante
+
+	@Override
+	public void ElimnarEstudiante(ClassEstudiante cestu) {
+		// 
+		
+		ConectarMYSQL conex =new ConectarMYSQL();
+		
+		String sql="delete from tb_estudiante where idestudiante=?";
+		
+		PreparedStatement ps=null;
+		
+		try {
+			ps=conex.conexionbd().prepareStatement(sql);
+			
+			ps.setInt(1,cestu.getIdestudiante());
+			
+			int x=ps.executeUpdate();
+			
+			if(x>0){
+				
+				System.out.println("Estudiante Eliminado de la BD");
+				
+			}else {
+				
+				System.out.println("Estudiante No Eliminado de la BD");
+				
+			}// fin del else
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}// fin del catch
+		
+		
+		
+	}// fin del método EliminarEstudiante
+
+	@Override
+	public List<ClassEstudiante> ListarEstudiante() {
+		//
+		ConectarMYSQL conex=new ConectarMYSQL();
+		
+		String sql="select * from tb_estudiante";
+		
+		
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+
+		List<ClassEstudiante>
+		
+			
+		return null;
+	}// fin del método ListarEstudiante
+
+	@Override
+	public ClassEstudiante BuscarEstudiante(ClassEstudiante cestu) {
+		// TODO Auto-generated method stub
+		return null;
+	}//fin del método BuscarEstudiante
+
+}// fin de la calse

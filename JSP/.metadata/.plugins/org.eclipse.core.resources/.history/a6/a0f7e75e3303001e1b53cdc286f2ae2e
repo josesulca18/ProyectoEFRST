@@ -1,0 +1,41 @@
+package Dao.Instituto;
+
+import java.util.Date;
+
+import Modelo.Instituto.ClassEstudiante;
+
+
+public class TestEstudiante {
+
+	public static void main(String[] args) {
+		//
+		ClassEstudiante clestu=new ClassEstudiante();
+		ClassEstudianteImp clcrud=new ClassEstudianteImp();
+		/*
+		clestu.setNomEstudiante("Lucas");
+		clestu.setApeEstudiante("Florez Campos");
+		clestu.setDniEstudiante("78541236");
+		clestu.setCorreo("lucasflorez@gmail.com");
+		clestu.setFono("985632147");
+		clestu.setCarrera("Diseño Grafico");
+		Date fechaact=new Date();
+		Date fechasql=new Date(fechaact.getTime());
+		clestu.setFechanac(fechasql);
+		
+		
+		clcrud.RegistrarEstudiante(clestu);
+		*/
+		
+		clestu.setNomEstudiante("Felipe");
+		clestu.setApeEstudiante("Gonzales Herrera");
+		clestu.setDniEstudiante("78541322");
+		clestu.setCorreo("felipegonzales@gmail.com");
+		clestu.setFono("985632456");
+		clestu.setCarrera("Contabilidad");
+		Date fechaact=new Date();
+		Date fechasql=new Date(fechaact.getTime());
+		clestu.setFechanac(fechasql);
+		
+	}// fin del método principal
+
+}// fin de la clase test Estudiante

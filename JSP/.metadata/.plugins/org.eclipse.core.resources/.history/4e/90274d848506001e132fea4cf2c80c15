@@ -1,0 +1,147 @@
+package Controlador.Instituto;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import Dao.Instituto.ClassAlumnoImp;
+import Dao.Instituto.ClassProfesorImp;
+import Modelo.Instituto.ClassAlumno;
+import Modelo.Instituto.ClassProfesor;
+
+/**
+ * Servlet implementation class ControladorLogueo
+ */
+@WebServlet("/ControladorLogueo")
+public class ControladorLogueo extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ControladorLogueo() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//redireccionar con servelts
+		
+		//forma 1
+			//response.sendRedirect("index.jsp");
+			
+		//forma 2
+			//request.getRequestDispatcher("/index.jsp").forward(request, response);
+	
+		//Recuperamos los datos del formulario index(logueo)
+			String usuarioProfesor=request.getParameter("usuarioProfesor");
+			String passProfesor=request.getParameter("passwordProfesor");
+			
+			String usuarioAlumno=request.getParameter("usuarioAlumno");
+			String passAlumno=request.getParameter("passwordAlumno");
+			
+			String mensaje="";
+			String imagen="";
+			
+			ClassProfesor clusu= new ClassProfesor();
+			ClassAlumno clal= new ClassAlumno();
+			
+			//Asignamos Valores
+				clusu.setIdProfesor(usuarioProfesor);
+				clusu.setPassProfesor(passProfesor);
+				
+				clal.setIdAlumno(usuarioAlumno);
+				clal.setPassAlumno(passAlumno);
+			
+			//Instanciamos clase
+				ClassProfesorImp climp= new ClassProfesorImp();
+				ClassAlumnoImp clamp= new ClassAlumnoImp();
+				
+			//Recuperamos los datos de la BD
+				
+			//Invocamos el método validarusuario
+				ClassProfesor valprofesor=climp.ValidarProfesor(clusu);
+				ClassAlumno valalumno=clamp.ValidarAlumno(clal);
+				
+				//Condicion con base de datos
+					if(valprofesor.getIdProfesor()!= null  && valprofesor.getPassProfesor()!= null){
+				
+				//mensaje de confirmacion
+						
+					mensaje="¡Enhorabuena! Acabas de Ingresar al Sistema";
+					imagen="Images/check.png";
+				
+				//enviamos alerta
+					request.setAttribute("mensaje", mensaje);
+					request.setAttribute("imagen", imagen);
+				
+				//redireccionamos al menú principal
+					request.getRequestDispatcher("/MenuPrincipal.jsp").forward(request, response);
+			}
+			
+			else{
+				//mensaje de confimación
+					mensaje="Credenciales Incorrectas.";
+					
+				//enviamos a la vista
+					request.setAttribute("mensaje", mensaje);
+					
+				//redireccionamos
+					request.getRequestDispatcher("/index.jsp").forward(request, response);
+			}
+			
+
+
+					
+					
+			//Condicion con base de datos
+					if(valalumno.getIdAlumno()!= null  && valalumno.getPassAlumno()!= null){
+				
+				//mensaje de confirmacion
+						
+					mensaje="¡Enhorabuena! Acabas de Ingresar al Sistema";
+					imagen="Images/check.png";
+				
+				//enviamos alerta
+					request.setAttribute("mensaje", mensaje);
+					request.setAttribute("imagen", imagen);
+				
+				//redireccionamos al menú principal
+					request.getRequestDispatcher("/MenuPrincipal.jsp").forward(request, response);
+			}
+			
+			else{
+				//mensaje de confimación
+					mensaje="Credenciales Incorrectas.";
+					
+				//enviamos a la vista
+					request.setAttribute("mensaje", mensaje);
+					
+				//redireccionamos
+					request.getRequestDispatcher("/index.jsp").forward(request, response);
+			}
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

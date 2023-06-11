@@ -1,0 +1,61 @@
+package Dao.Instituto;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import Modelo.Instituto.ClassProfesor;
+
+public class TestClassProfesorImp {
+
+	public static void main(String[] args) {
+		// instanciamos las respectivas clases
+		
+		ClassProfesor clusu=new ClassProfesor();
+		
+		ClassProfesorImp climp=new ClassProfesorImp();
+		
+		// asignamos valores a los metodos setter
+		
+		clusu.setIdProfesor("admin");
+		clusu.setPassProfesor("123456");
+		clusu.setNomProfesor("ARTEMIO ARTURO");
+		clusu.setApeProfesor("RIVERA MONTOYA");
+		clusu.setDniProfesor("71609253");
+		clusu.setCorreoProfesor("ARTEMIO_OCHO@GMAIL.COM");
+		clusu.setFonoProfesor("984020173");
+		
+		//Aplicamos la clase simpledateformat
+		SimpleDateFormat sdf= new SimpleDateFormat("dd/mm/yyyy");
+		
+		Date fecha;
+		
+		try{
+			fecha= sdf.parse(fechaven);
+			Date fechasql= new Date(fecha.getTime());
+			
+			clusu.setFechanach(fechasql);
+
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		// recuperamons valores de la base de datos
+		
+		ClassProfesor valusu=climp.ValidarProfesor(clusu);
+		
+		// aplicamos una condicion
+		
+		if(valusu.getIdProfesor()!=null && valusu.getPassProfesor()!=null){
+			
+			// emitimos un mensaje por consola 
+			
+			System.out.println("Credenciales Correctas");
+		}else {
+			System.out.println("Credenciales Incorrectas");
+			
+		}// FIN DE LA CONDICION
+
+	}// fin del metodo principal
+
+} // fin de la clase

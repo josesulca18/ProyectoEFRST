@@ -1,0 +1,12 @@
+package Modelo.Instituto;
+
+public class ClassUsuario {
+	
+	private String idusuario;
+	private String password;
+	
+	
+	
+	
+	
+}// fin de la clase usuario..

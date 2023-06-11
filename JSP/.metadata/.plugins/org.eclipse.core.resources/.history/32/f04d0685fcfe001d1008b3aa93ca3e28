@@ -1,0 +1,47 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Logueo</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/Bootstrap@4.0.0/dist/css/bootstrap.min.css">
+<!-- BOOTSTRAP VERSION 4.0 -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+</head>
+<body bgcolor="#AED6F1">
+<%
+  String msj=(String)request.getAttribute("mensaje");
+  String menlog="";
+  
+  if(msj!=null) menlog=msj;
+
+%>
+<h2 align="center">
+  	<%=menlog %>
+</h2>
+
+<form action="ControladorLogueo" method="post">
+	<table border="2" align="center">
+		<tr>
+			<td>Usuario</td>
+			<td>
+				<input type="text" name="usuario" class="form-control">
+			</td>
+		</tr>
+		<tr>
+			<td>PassWord</td>
+			<td><input type="password" name="password" class="form-control"></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="submit" value="Acceder al sistema"></td>
+			
+		</tr>
+	</table>
+
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
